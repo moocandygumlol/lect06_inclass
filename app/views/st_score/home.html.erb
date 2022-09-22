@@ -1,0 +1,21 @@
+<%if @student != nil%>
+    <table>
+        <tr>
+            <td>subject</td>
+            <td>point</td>
+            <td>grade</td>
+            <td>edit</td>
+            <td>delete</td>
+        </tr>
+    <%@student.score.each do |s|%>
+        <tr>
+            <td><%=s.subject%></td>
+            <td><%=s.point%></td>
+            <td><%=s.grade%></td>
+            <td><%=link_to "edit", controller: "st_score", action: "edit", id: s.id %></td>
+            <td><%=link_to "delete", controller: "st_score", action: "delete", id: s.id%><td>
+        </tr>
+    <%end%>
+<%else%>
+    <p>this student_id is not found</p>
+<%end%>
